@@ -49,3 +49,7 @@
 input{
     display: block;
 }
+
+canvas{
+    background-color: red;
+}

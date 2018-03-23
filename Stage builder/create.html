@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Stage designer</title>
+
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- JAVASCRIPT -->
+        <script src="js/script.js"></script>
+        <script src="js/game/start.js"></script>
+
+    </head>
+    <body>
+        <!-- CREATE BLADE -->
+        <!-- MAIN CONTAINER -->
+        <div id="builderContainer">
+
+            <!-- BUTTON CONTAINER -->
+            <div id="builderButtonContainer">
+                <!-- FOR FOR SETTING SIZE OF NEW LAYOUT GRID -->
+                <div class="">
+                    <h3>LAYOUT SETTINGS</h3>
+                    <form id="builderLayout">
+                        <input type="number" name="layoutRows" value="">Number of rows</input>
+                        <input type="number" name="layoutCols" value="">Number of columns</input>
+                        <input type="submit" value="Generate">
+                    </form>
+
+                    <div class="">
+                        <button type="button" name="button">REMOVE FIRST ROW</button>
+                        <button type="button" name="button">REMOVE LAST ROW</button>
+                        <button type="button" name="button">REMOVE FIRST COLUMN</button>
+                        <button type="button" name="button">REMOVE LAST COLUMN</button>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER FOR TILE TYPE SELECTOR BUTTONS WHICH ARE ADDED WITH JS -->
+                <div class="">
+                    <h3>TILE PALETTE</h3>
+                    <div id="tileTypeSelectors">
+                        <!-- PLAYER SPAWN LOCATION -->
+                        <button class="builderButton" value="x">X</button>
+                        <!-- DELETING TILE -->
+                        <button class="builderButton" value="0">0</button>
+
+                        <!-- TILE TYPE BUTTONS WILL BE APPENDED WITH JS AFTER THIS -->
+                    </div>
+                </div>
+
+                <!-- BUTTON FOR CREATING LAYOUT ARRAY -->
+                <div>
+                    <button type="button" name="button" onclick="generateLevelArray()">Make level</button>
+                </div>
+            </div>
+            <!-- END BUTTON CONTAINER -->
+
+            <!-- GENERATED GRID CONTAINER -->
+            <div id="builderLayoutContainer"></div>
+
+        </div>
+        <!-- END MAIN CONTAINER -->
+
+        <!-- !!! TO BE MOVED TO INDEX.BLADE !!! -->
+        <hr>
+
+        <div id="canvasContainer">
+            <canvas id="sceneCanvas"></canvas>
+        </div>
+
+    </body>
+</html>

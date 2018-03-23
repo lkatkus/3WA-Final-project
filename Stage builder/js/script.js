@@ -132,5 +132,9 @@ function generateLevelArray(){
     // CONVERT LEVEL LAYOUT ARRAY TO JSON FOR STORING IN DATABASE
     let levelJSON = JSON.stringify(levelArray);
 
-    console.log(levelJSON);
+    // FOR TESTING
+    startGame(levelJSON);
+
+    // ADD DATA TO DB
+
 };
