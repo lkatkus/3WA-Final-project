@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="js/script.js"></script>
+
+    </head>
+    <body>
+
+        <div id="builderContainer">
+            <div id="builderButtonContainer">
+                <form id="builderLayout">
+                    <input type="number" name="layoutRows" value="">Number of rows</input>
+                    <input type="number" name="layoutCols" value="">Number of columns</input>
+                    <input type="submit" value="Generate">
+                </form>
+                <div id="tileTypeSelectors">
+                    <button type="button" name="button" value="0">0</button>
+                    <button type="button" name="button" value="1">1</button>
+                    <button type="button" name="button" value="2">2</button>
+                    <button type="button" name="button" value="3">3</button>
+                    <button type="button" name="button" value="4">4</button>
+                    <button type="button" name="button" value="5">5</button>
+                    <button type="button" name="button" value="6">6</button>
+                    <button type="button" name="button" value="7">7</button>
+                    <button type="button" name="button" value="8">8</button>
+                    <button type="button" name="button" value="9">9</button>
+                    <button type="button" name="button" value="10">10</button>
+                    <button type="button" name="button" value="11">11</button>
+                    <button type="button" name="button" value="12">12</button>
+                    <button type="button" name="button" value="13">13</button>
+                    <button type="button" name="button" value="14">14</button>
+                    <button type="button" name="button" value="15">15</button>
+                </div>
+                <div class="">
+                    <button type="button" name="button" onclick="generateLevelArray()">Generate</button>
+                </div>
+            </div>
+
+            <div id="builderLayoutContainer"></div>
+        </div>
+
+    </body>
+</html>
