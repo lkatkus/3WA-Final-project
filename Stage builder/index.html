@@ -2,47 +2,63 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Stage designer</title>
 
+        <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="css/style.css">
-
+        <!-- JAVASCRIPT -->
         <script src="js/script.js"></script>
 
     </head>
     <body>
 
+        <!-- MAIN CONTAINER -->
         <div id="builderContainer">
+
+            <!-- BUTTON CONTAINER -->
             <div id="builderButtonContainer">
-                <form id="builderLayout">
-                    <input type="number" name="layoutRows" value="">Number of rows</input>
-                    <input type="number" name="layoutCols" value="">Number of columns</input>
-                    <input type="submit" value="Generate">
-                </form>
-                <div id="tileTypeSelectors">
-                    <button type="button" name="button" value="0">0</button>
-                    <button type="button" name="button" value="1">1</button>
-                    <button type="button" name="button" value="2">2</button>
-                    <button type="button" name="button" value="3">3</button>
-                    <button type="button" name="button" value="4">4</button>
-                    <button type="button" name="button" value="5">5</button>
-                    <button type="button" name="button" value="6">6</button>
-                    <button type="button" name="button" value="7">7</button>
-                    <button type="button" name="button" value="8">8</button>
-                    <button type="button" name="button" value="9">9</button>
-                    <button type="button" name="button" value="10">10</button>
-                    <button type="button" name="button" value="11">11</button>
-                    <button type="button" name="button" value="12">12</button>
-                    <button type="button" name="button" value="13">13</button>
-                    <button type="button" name="button" value="14">14</button>
-                    <button type="button" name="button" value="15">15</button>
-                </div>
+                <!-- FOR FOR SETTING SIZE OF NEW LAYOUT GRID -->
                 <div class="">
-                    <button type="button" name="button" onclick="generateLevelArray()">Generate</button>
+                    <h3>LAYOUT SETTINGS</h3>
+                    <form id="builderLayout">
+                        <input type="number" name="layoutRows" value="">Number of rows</input>
+                        <input type="number" name="layoutCols" value="">Number of columns</input>
+                        <input type="submit" value="Generate">
+                    </form>
+
+                    <div class="">
+                        <button type="button" name="button">REMOVE FIRST ROW</button>
+                        <button type="button" name="button">REMOVE LAST ROW</button>
+                        <button type="button" name="button">REMOVE FIRST COLUMN</button>
+                        <button type="button" name="button">REMOVE LAST COLUMN</button>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER FOR TILE TYPE SELECTOR BUTTONS WHICH ARE ADDED WITH JS -->
+                <div class="">
+                    <h3>TILE PALETTE</h3>
+                    <div id="tileTypeSelectors">
+                        <!-- PLAYER SPAWN LOCATION -->
+                        <button class="builderButton" value="x">X</button>
+                        <!-- DELETING TILE -->
+                        <button class="builderButton" value="0">0</button>
+
+                        <!-- TILE TYPE BUTTONS WILL BE APPENDED WITH JS AFTER THIS -->
+                    </div>
+                </div>
+
+                <!-- BUTTON FOR CREATING LAYOUT ARRAY -->
+                <div>
+                    <button type="button" name="button" onclick="generateLevelArray()">Make level</button>
                 </div>
             </div>
+            <!-- END BUTTON CONTAINER -->
 
+            <!-- GENERATED GRID CONTAINER -->
             <div id="builderLayoutContainer"></div>
+
         </div>
+        <!-- END MAIN CONTAINER -->
 
     </body>
 </html>

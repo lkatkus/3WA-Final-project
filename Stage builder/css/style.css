@@ -2,9 +2,30 @@
     box-sizing: border-box;
 }
 
+#builderContainer{
+    display: inline-block;
+}
+
 #builderLayoutContainer{
     background-color: red;
     display: inline-block;
+}
+
+#builderButtonContainer{
+    background-color: grey;
+}
+
+#tileTypeSelectors{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.builderButton{
+    min-width: 100px;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .layoutRow{
@@ -23,4 +44,8 @@
     background-color: #b4d5eb;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+input{
+    display: block;
 }
