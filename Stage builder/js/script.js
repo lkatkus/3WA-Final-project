@@ -91,7 +91,7 @@ window.addEventListener('load', function(){
                 tile.style.backgroundImage  = ``;
                 tile.setAttribute('value', newTileType);
             }else if(newTileType == 'x'){
-                tile.style.backgroundImage  = ``;
+                tile.style.backgroundImage  = `url(\"images/player-test.png\")`;
                 tile.setAttribute('value', newTileType);
             }
         };
