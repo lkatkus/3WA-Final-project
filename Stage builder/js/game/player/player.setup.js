@@ -8,6 +8,8 @@ function Player(){
     this.x = 0;
     this.y = 0;
 
+    this.playerCurrentY = 0;
+    this.jumpHeight = 20;
     // GRID COORDINATES
     this.playerCol;
     this.playerRow;
@@ -32,10 +34,10 @@ function Player(){
     this.grounded = true;
     this.jumping = false;
     this.falling = false;
-    this.climbingUp = false;
-    this.climbingDown = false;
-    this.canClimbUp = false;
-    this.canClimbDown = false;
+    // this.climbingUp = false;
+    // this.climbingDown = false;
+    // this.canClimbUp = false;
+    // this.canClimbDown = false;
 
     this.playerImg = new Image();
 };

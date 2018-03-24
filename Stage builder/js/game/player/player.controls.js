@@ -9,6 +9,15 @@ function addPlayerControls(){
             console.log('right');
             player.right = true;
         }
+        if(event.key == 'ArrowUp'){
+            console.log('up');
+            if(!player.jumping && player.grounded){
+                this.playerCurrentY = player.y;
+                player.jumping = true;
+                player.grounded = false;
+                console.log('jump if1');
+            }
+        }
         // if(event.key == 'ArrowUp'){
         //     if(player.canClimbUp){
         //         player.climbingUp = true;
