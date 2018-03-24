@@ -1,10 +1,5 @@
 // VARIABLES
-// MAIN WORLD PARAMETERS
-var WORLD_COLS;
-var WORLD_ROWS;
 
-var TILE_SIZE;
-var TILES_PER_ROW = 11; /* CONTROLS NUMBER OF ROWS DISPLAYED ON SCREEN */
 
 // GAME SETUP
 const FPS = 60;
@@ -33,9 +28,6 @@ var trackIdleLeft = 3; /* FOR IDLE LEFT ANIMATION */
 var spriteWidth = 100;
 var spriteHeight = 200;
 
-// var spriteWidth = Number(spriteWidth/cols);
-// var spriteHeight = Number(spriteHeight/rows);
-
 var curFrame = 0;
 var frameCount = 8;
 
@@ -58,12 +50,20 @@ var screen = {
 };
 
 
-// ========= NEW CODE =========
+// ============ NEW CODE ============
 
 var canvas; /* CANVAS PLACEHOLDER */
 var ctx; /* CANVAS CONTEXT */
 
 var sceneLayout = []; /* SCENE LAYOUT ARRAY PLACEHOLDER */
+
+// MAIN WORLD PARAMETERS
+var WORLD_COLS; /* NUMBER OF COLUMNS IN SCENE ARRAY */
+var WORLD_ROWS; /* NUMBER OF ROWS IN SCENE ARRAY */
+
+var TILE_SIZE; /* TILE SIZE IS CALCULATED IS setWorldSize() BASED ON SCREEN SIZE AND TILES_PER_ROW */
+var TILES_PER_ROW = 11; /* CONTROLS NUMBER OF ROWS DISPLAYED ON SCREEN */
+
 
 // TILE SHEET SETUP
 var TILE_SHEET = 'images/tilesheet-20180320.png';
@@ -73,34 +73,45 @@ var TILESHEET_ROWS = 20;
 var TILESHEET_COLS = 20;
 var TILESHEET_SPRITE = TILESHEET_WIDTH / TILESHEET_COLS;
 
+var tile = new Image(); /* PLACEHOLDER FOR DRAWING SINGLE TILE */
+tile.src = TILE_SHEET; /* SET TILESHEET SOURCE */
 
+// FUNCTIONS
+// MAIN START FUNCTION. REQUIRES LAYOUT ARRAY IN JSON
 function startGame(layout){
     console.log('=== STARTING GAME ===');
 
+    // CONVERT RECEIVED JSON TO ARRAY
     sceneLayout = JSON.parse(layout);
-    console.log(sceneLayout);
 
     // SELECTORS
     canvas = document.getElementById('sceneCanvas');
     ctx = canvas.getContext('2d');
 
-
-    function mainDraw(){
-        void ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawScene();
-    };
-
-    function animate(){
-        setInterval(function() {
-            mainDraw();
-        }, 1000/FPS);
-    };
-
     // START ANIMATION
     setWorldSize();
+    setPlayer();
     animate();
-
 };
+
+function animate(){
+    setInterval(function() {
+        mainMove();
+        mainDraw();
+    }, 1000/FPS);
+};
+
+function mainMove(){
+    player.checkPosition();
+    player.move();
+};
+
+function mainDraw(){
+    void ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawScene();
+    player.draw();
+};
+
 
 // SETUP CANVAS SIZE
 function setWorldSize(){
@@ -108,25 +119,36 @@ function setWorldSize(){
     WORLD_COLS = sceneLayout[0].length;
     WORLD_ROWS = sceneLayout.length;
 
-    // CANVAS SETUP
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    TILE_SIZE = 100;
 
-    if(canvas.width / canvas.height < 1){
-        TILE_SIZE = Math.ceil(canvas.width / TILES_PER_ROW);
-    }else{
-        TILE_SIZE = Math.ceil(canvas.height / TILES_PER_ROW);
-    }
+    // if(canvas.width / canvas.height < 1){
+    //     TILE_SIZE = Math.ceil(canvas.width / TILES_PER_ROW);
+    // }else{
+    //     TILE_SIZE = Math.ceil(canvas.height / TILES_PER_ROW);
+    // }
+
+    // CANVAS SETUP
+    canvas.width = WORLD_COLS * TILE_SIZE;
+    canvas.height = WORLD_ROWS * TILE_SIZE;
+
 };
+
+function setPlayer(){
+    player = new Player();
+    calculateSpawnLocation();
+    addPlayerControls();
+}
 
 // FIND LOCATION OF DESIRED SPRITE BY NUMBER ON TILESHEET
 function getTileSheetLocation(i, j, numb){
+    // REDUCE TILE NUMBER BY 1, BECAUSE TILES NUMBERING STARTS AT 1 AND ARRAY ON 0
     numb--;
+
+    // CONVERT TILE NUMBER TO COORDINATES ON TILESHEET
     let sourceRow = Math.floor(numb / TILESHEET_COLS);
     let sourceCol = numb - sourceRow * TILESHEET_COLS;
 
-    let tile = new Image();
-    tile.src = TILE_SHEET;
+    // SET TILE SOURCE
     ctx.drawImage(tile, sourceCol * TILESHEET_SPRITE, sourceRow * TILESHEET_SPRITE, TILESHEET_SPRITE, TILESHEET_SPRITE, j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
 };
 
@@ -142,23 +164,13 @@ function drawScene(){
 };
 
 
-// ========= NEW CODE =========
+// ============ END NEW CODE ============
 
 
 // MAIN START FUNCTION
 function init(){
 
 
-
-    function drawScene(){
-        for(let i = screen.visibleRowTop; i < screen.visibleRowBottom; i++){
-            for(let j = screen.visibleColLeft; j < screen.visibleColRight; j++){
-                if(sceneLayout[i][j] > 0){
-                    getTileSheetLocation(i,j,sceneLayout[i][j]);
-                }
-            }
-        }
-    };
 
 
 
@@ -200,43 +212,6 @@ function init(){
         screen.visibleRowTop = cameraTopMostRow;
         screen.visibleRowBottom = cameraBottomMostRow;
     };
-
-
-
-
-
-
-    function mainMove(){
-        // player.checkPosition();
-        // player.move();
-        // cameraFollow();
-    };
-
-    function mainDraw(){
-        void ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // ctx.save();
-        // ctx.translate(-camPanX, -camPanY);
-        drawScene();
-        // ctx.restore();
-        // player.draw();
-    };
-
-    function animate(){
-        setInterval(function() {
-            // mainMove();
-            // checkVisibleTiles();
-            mainDraw();
-        }, 1000/FPS);
-
-        setInterval(function(){
-            curFrame = ++curFrame % frameCount;
-        }, 100);
-    };
-
-
-    // START ANIMATION
-    // animate();
-
 
 
 

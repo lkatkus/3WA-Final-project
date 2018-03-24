@@ -51,5 +51,15 @@ input{
 }
 
 canvas{
-    background-color: red;
+    background-color: #b4d5eb;
+}
+
+.debug{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #d3d3d3;
+    color: red;
 }
