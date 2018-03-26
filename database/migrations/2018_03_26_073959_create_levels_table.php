@@ -19,6 +19,8 @@ class CreateLevelsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->json('layout');
+            $table->boolean('featured')->nullable()->unsigned();
+            $table->boolean('confirmed')->nullable()->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });

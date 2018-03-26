@@ -37,8 +37,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a class="nav-link" href="{{ route('level.index') }}">All levels</a></li>
-                        <li><a class="nav-link" href="{{ route('level.create')}}">Create level</a></li>
-                        <li><a class="nav-link" href="#">Your levels</a></li>
+                        @if( Auth::check())
+                            <li><a class="nav-link" href="{{ route('level.create')}}">Create level</a></li>
+                            <li><a class="nav-link" href="#">Your levels</a></li>
+                        @endif
+                        <li><a class="nav-link" href="{{ route('about') }}">About</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -71,9 +74,36 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 bg-info">
             @yield('content')
         </main>
     </div>
+
+    <footer class="bg-warning">
+        <div class="container py-2 ">
+            <div class="row">
+                <div class="col-4 ">
+                    About
+                </div>
+                <div class="col-4 ">
+                    Social
+                </div>
+                <div class="col-4 ">
+                    Contact
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-success">
+            <div class="container py-2">
+                <div class="row">
+                    <div class="col-12">
+                        Copyright 2018, Laimonas Katkus, All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
 </body>
 </html>

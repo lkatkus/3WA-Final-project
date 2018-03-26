@@ -26,7 +26,8 @@ function returnTileGridStatus(x, y){
         || sceneLayout[gridRow][gridCol] > 0 && sceneLayout[gridRow][gridCol] <= 5
         || sceneLayout[gridRow][gridCol] == 21
         || sceneLayout[gridRow][gridCol] >= 181 && sceneLayout[gridRow][gridCol] <= 183
-        || sceneLayout[gridRow][gridCol] >= 208 && sceneLayout[gridRow][gridCol] <= 210){
+        || sceneLayout[gridRow][gridCol] >= 208 && sceneLayout[gridRow][gridCol] <= 210
+        || sceneLayout[gridRow][gridCol] === undefined){
         return true;
     }else{
         return false;

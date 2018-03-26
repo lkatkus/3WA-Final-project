@@ -12,10 +12,15 @@
 */
 
 
-// Route::get('/', 'LevelController@index');
+
+Route::get('/', function(){
+    return view('home');
+})->name('home');
+
+Route::get('/about', function(){
+    return view('about');
+})->name('about');
 
 Auth::routes();
-
-Route::get('/', 'LevelController@index');
 
 Route::resource('/level', 'LevelController');
