@@ -22,6 +22,7 @@ Player.prototype.move = function(){
                     this.grounded = true;
                 }else{
                     this.falling = true;
+                    console.log('falling');
                 }
             }
         }
@@ -46,6 +47,7 @@ Player.prototype.move = function(){
                     this.grounded = true;
                 }else{
                     this.falling = true;
+                    console.log('falling');
                 }
             }
         }

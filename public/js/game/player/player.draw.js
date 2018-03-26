@@ -23,7 +23,7 @@ var srcY = 0;
 
 // PLAYER OBJECT - DRAW
 Player.prototype.draw = function(){
-    this.playerImg.src = 'images/player-test.png';
+    this.playerImg.src = '../images/player-test.png';
 
     // srcX = curFrame * spriteWidth;
 

@@ -5,7 +5,8 @@ var ctx; /* CANVAS CONTEXT */
 // GAME SETUP
 const FPS = 60; /* USED IN ANIMATION FUNCTION */
 
-var sceneLayout = []; /* SCENE LAYOUT ARRAY PLACEHOLDER */
+var sceneLayout; /* SCENE LAYOUT ARRAY PLACEHOLDER */
+var layout;
 
 // MAIN WORLD PARAMETERS
 var WORLD_COLS; /* NUMBER OF COLUMNS IN SCENE ARRAY */
@@ -15,7 +16,7 @@ var TILE_SIZE; /* TILE SIZE IS CALCULATED IS setWorldSize() BASED ON SCREEN SIZE
 var TILES_PER_ROW = 11; /* CONTROLS NUMBER OF ROWS DISPLAYED ON SCREEN */
 
 // TILE SHEET SETUP
-var TILE_SHEET = 'images/tilesheet-20180320.png';
+var TILE_SHEET = '../images/tilesheet-20180320.png';
 var TILESHEET_WIDTH = 1200;
 var TILESHEET_HEIGHT = 1200;
 var TILESHEET_ROWS = 20;
@@ -47,12 +48,22 @@ var camPanY = 0;
 // ========= END VARIABLES =========
 
 // ========= FUNCTIONS =========
-// MAIN START FUNCTION. REQUIRES LAYOUT ARRAY IN JSON
-function setupGame(layout){
-    console.log('=== STARTING GAME ===');
+// MAIN START FUNCTION
 
-    // CONVERT RECEIVED JSON TO ARRAY
-    sceneLayout = JSON.parse(layout);
+window.addEventListener('resize', function(){
+    if(myAnimationInterval){
+        setWorldSize();
+        setPlayer();
+    }else{
+        setWorldSize();
+        setPlayer();
+        makeWorld();
+    }
+});
+
+window.addEventListener('load', function(){
+
+    console.log('=== SETUP GAME ===');
 
     // SELECTORS
     canvas = document.getElementById('sceneCanvas');
@@ -62,15 +73,18 @@ function setupGame(layout){
     setWorldSize();
     setPlayer();
     makeWorld();
-};
+});
 
+// USER WHEN FIRST DISPLAYING LAYOUT FOR USER
 function makeWorld(){
-        mainMove();
-        mainDraw();
+    mainMove();
+    mainDraw();
 };
 
+// TRIGGERED BY USER
 function startGame(){
-    setInterval(function() {
+    console.log('=== START GAME ===');
+    myAnimationInterval = setInterval(function() {
         mainMove();
         mainDraw();
     }, 1000/FPS);
@@ -87,25 +101,22 @@ function mainDraw(){
     player.draw();
 };
 
-
 // SETUP CANVAS SIZE
 function setWorldSize(){
     // WORLD SIZE PARAMETERS
     WORLD_COLS = sceneLayout[0].length;
     WORLD_ROWS = sceneLayout.length;
 
-    TILE_SIZE = 100;
+    TILE_SIZE = 50;
+    // CANVAS SETUP
+    canvas.width = document.getElementById('canvasContainer').offsetWidth;
+    canvas.height = canvas.width;
 
-    // if(canvas.width / canvas.height < 1){
-    //     TILE_SIZE = Math.ceil(canvas.width / TILES_PER_ROW);
-    // }else{
-    //     TILE_SIZE = Math.ceil(canvas.height / TILES_PER_ROW);
-    // }
+    // TILE_SIZE = document.getElementById('canvasContainer').offsetWidth / WORLD_COLS;
 
     // CANVAS SETUP
-    canvas.width = WORLD_COLS * TILE_SIZE;
-    canvas.height = WORLD_ROWS * TILE_SIZE;
-
+    // canvas.width = WORLD_COLS * TILE_SIZE;
+    // canvas.height = WORLD_ROWS * TILE_SIZE;
 };
 
 function setPlayer(){

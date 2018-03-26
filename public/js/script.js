@@ -61,7 +61,7 @@ window.addEventListener('load', function(){
         button.setAttribute('value', i);
         button.appendChild(document.createTextNode(i));
         button.classList.add('builderButton');
-        button.style.backgroundImage  = `url(\"images/tiles/tile-${i}.png\")`;
+        button.style.backgroundImage  = `url(\"../images/tiles/tile-${i}.png\")`;
         tileTypeSelectors.appendChild(button);
     }
     // END GENERATE TILE TYPE SELECTOR BUTTONS
@@ -85,13 +85,13 @@ window.addEventListener('load', function(){
         if(tile.classList.contains('layoutTile')){
             if(newTileType != 0 && newTileType != 'x'){
                 // APPLY VALUE
-                tile.style.backgroundImage  = `url(\"images/tiles/tile-${newTileType}.png\")`;
+                tile.style.backgroundImage  = `url(\"../images/tiles/tile-${newTileType}.png\")`;
                 tile.setAttribute('value', newTileType);
             }else if(newTileType == 0){
                 tile.style.backgroundImage  = ``;
                 tile.setAttribute('value', newTileType);
             }else if(newTileType == 'x'){
-                tile.style.backgroundImage  = `url(\"images/player-test.png\")`;
+                tile.style.backgroundImage  = `url(\"../images/player-test.png\")`;
                 tile.setAttribute('value', newTileType);
             }
         };
@@ -131,10 +131,9 @@ function generateLevelArray(){
     // CONVERT LEVEL LAYOUT ARRAY TO JSON FOR STORING IN DATABASE
     let levelJSON = JSON.stringify(levelArray);
 
-    // FOR TESTING
-    setupGame(levelJSON);
-
-    // ADD DATA TO DB
+    console.log(levelJSON);
+    document.getElementById("levelLayoutJSONInput").setAttribute('value', levelJSON);
+    document.getElementById("levelLayoutForm").submit();
 };
 
 

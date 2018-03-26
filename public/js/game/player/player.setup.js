@@ -9,7 +9,7 @@ function Player(){
     this.y = 0;
 
     this.playerCurrentY = 0;
-    this.jumpHeight = TILE_SIZE * 3;
+    this.jumpHeight = TILE_SIZE * 2;
     // GRID COORDINATES
     this.playerCol;
     this.playerRow;

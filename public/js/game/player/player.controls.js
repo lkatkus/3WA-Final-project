@@ -2,15 +2,12 @@
 function addPlayerControls(){
     document.addEventListener('keydown',function(event){
         if(event.key == 'ArrowLeft' && !player.climbingDown){
-            console.log('left');
             player.left = true;
         }
         if(event.key == 'ArrowRight' && !player.climbingDown){
-            console.log('right');
             player.right = true;
         }
         if(event.key == 'ArrowUp'){
-            console.log('up');
             if(!player.jumping && player.grounded){
                 player.playerCurrentY = player.y;
                 player.jumping = true;

@@ -20,6 +20,6 @@ Player.prototype.checkPosition = function (){
     // }
 
     // DEBUGGING
-    document.getElementById('playerRow').innerHTML = this.playerRow;
-    document.getElementById('playerCol').innerHTML = this.playerCol;
+    // document.getElementById('playerRow').innerHTML = this.playerRow;
+    // document.getElementById('playerCol').innerHTML = this.playerCol;
 };
