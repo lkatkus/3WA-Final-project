@@ -32,3 +32,44 @@ function returnTileGridStatus(x, y){
         return false;
     }
 };
+
+// CAMERA FOLLOW FUNCTION
+function cameraFollow() {
+    camPanX = player.x - canvas.width / 2;
+
+    if(!player.jumping || !player.falling){
+        camPanY = player.y - canvas.height / 5 * 4;
+    }
+};
+
+// CHECKS WHICH TILES ARE VISIBLE TO PLAYER
+function checkVisibleTiles() {
+
+    var colsThatFitOnScreen = Math.floor(canvas.width / TILE_SIZE);
+    var rowsThatFitOnScreen = Math.floor(canvas.height / TILE_SIZE);
+
+    var cameraLeftMostCol = Math.floor(camPanX / TILE_SIZE);
+    if(cameraLeftMostCol < 0){
+        cameraLeftMostCol = 0;
+    }
+    var cameraRightMostCol = cameraLeftMostCol + colsThatFitOnScreen + 2;
+    if(cameraRightMostCol > sceneLayout[0].length){
+        cameraRightMostCol = sceneLayout[0].length;
+    }
+
+    var cameraTopMostRow = Math.floor(camPanY / TILE_SIZE);
+    if(cameraTopMostRow < 0){
+        cameraTopMostRow = 0;
+    }
+
+    var cameraBottomMostRow = cameraTopMostRow + rowsThatFitOnScreen + 2;
+    if(cameraBottomMostRow > sceneLayout.length){
+        cameraBottomMostRow = sceneLayout.length;
+    }
+
+    screen.visibleColLeft = cameraLeftMostCol;
+    screen.visibleColRight = cameraRightMostCol;
+
+    screen.visibleRowTop = cameraTopMostRow;
+    screen.visibleRowBottom = cameraBottomMostRow;
+};

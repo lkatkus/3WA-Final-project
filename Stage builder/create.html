@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="css/style.css">
         <!-- JAVASCRIPT -->
         <script src="js/script.js"></script>
-        <script src="js/game/start.js"></script>
 
         <!-- INDEX BLADE -->
+        <script src="js/game/start.js"></script>
         <script src="js/game/player/player.setup.js"></script>
         <script src="js/game/player/player.helpers.js"></script>
         <script src="js/game/player/player.draw.js"></script>
@@ -36,10 +36,10 @@
                     </form>
 
                     <div class="">
-                        <button type="button" name="button">REMOVE FIRST ROW</button>
-                        <button type="button" name="button">REMOVE LAST ROW</button>
-                        <button type="button" name="button">REMOVE FIRST COLUMN</button>
-                        <button type="button" name="button">REMOVE LAST COLUMN</button>
+                        <button type="button" name="button" onclick="removeRow('first')">REMOVE FIRST ROW</button>
+                        <button type="button" name="button" onclick="removeRow('last')">REMOVE LAST ROW</button>
+                        <button type="button" name="button" onclick="removeCol('first')">REMOVE FIRST COLUMN</button>
+                        <button type="button" name="button" onclick="removeCol('last')">REMOVE LAST COLUMN</button>
                     </div>
                 </div>
 
@@ -59,6 +59,7 @@
                 <!-- BUTTON FOR CREATING LAYOUT ARRAY -->
                 <div>
                     <button type="button" name="button" onclick="generateLevelArray()">Make level</button>
+                    <button type="button" name="button" onclick="startGame()">Start game</button>
                 </div>
             </div>
             <!-- END BUTTON CONTAINER -->
@@ -69,7 +70,8 @@
         </div>
         <!-- END MAIN CONTAINER -->
 
-        <!-- !!! TO BE MOVED TO INDEX.BLADE !!! -->
+        <!-- !!! FOR TESTING. TO BE MOVED TO INDEX.BLADE !!! -->
+
         <hr>
 
         <div class="debug">

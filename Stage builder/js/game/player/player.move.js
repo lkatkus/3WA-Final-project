@@ -6,7 +6,7 @@ Player.prototype.move = function(){
         let nextX = this.x;
         this.x -= this.speedX;
 
-        if(returnTileGridStatus(this.x - 1, this.y)){
+        if(returnTileGridStatus(this.x, this.y) && returnTileGridStatus(this.x, this.y + TILE_SIZE)){
             this.x = nextX;
         }else{
 
@@ -17,7 +17,7 @@ Player.prototype.move = function(){
 
             // CHECK BOTTOM TYLE
             if(!this.jumping){
-                if(returnTileGridStatus(this.x, this.y + TILE_SIZE + 1) || returnTileGridStatus(this.x + TILE_SIZE, this.y + TILE_SIZE + 1)){
+                if(returnTileGridStatus(this.x + 5, this.y + TILE_SIZE) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y + TILE_SIZE)){
                     this.falling = false;
                     this.grounded = true;
                 }else{
@@ -31,7 +31,7 @@ Player.prototype.move = function(){
         let nextX = this.x;
         this.x += this.speedX;
 
-        if(returnTileGridStatus(this.x + TILE_SIZE + 1,this.y)){
+        if(returnTileGridStatus(this.x + TILE_SIZE,this.y) && returnTileGridStatus(this.x + TILE_SIZE, this.y + TILE_SIZE)){
             this.x = nextX;
         }else{
             // ACCELERATION
@@ -41,7 +41,7 @@ Player.prototype.move = function(){
 
             // CHECK BOTTOM TYLE
             if(!this.jumping){
-                if(returnTileGridStatus(this.x, this.y + TILE_SIZE + 1) || returnTileGridStatus(this.x + TILE_SIZE, this.y + TILE_SIZE + 1)){
+                if(returnTileGridStatus(this.x + 5, this.y + TILE_SIZE) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y + TILE_SIZE)){
                     this.falling = false;
                     this.grounded = true;
                 }else{
@@ -57,7 +57,7 @@ Player.prototype.move = function(){
         this.y += this.speedY;
 
         // CHECK TILE BELOW PLAYER
-        if(returnTileGridStatus(this.x,this.y + TILE_SIZE + 1) || returnTileGridStatus(this.x + TILE_SIZE,this.y + TILE_SIZE + 1)){
+        if(returnTileGridStatus(this.x + 5, this.y + TILE_SIZE) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y + TILE_SIZE)){
                 this.jumping = false;
                 this.falling = false;
                 this.grounded = true;
@@ -79,8 +79,6 @@ Player.prototype.move = function(){
     // FOR JUMPING
     if(this.jumping && !this.grounded){
 
-        console.log('jump route');
-
         // INITIAL JUMP
         if(this.playerCurrentY - this.jumpHeight <= this.y && this.jumping && !this.falling){
 
@@ -94,47 +92,18 @@ Player.prototype.move = function(){
             // }
 
             // CHECKING TILE ABOVE PLAYER IS EMPTY
-            // if(returnTileGridStatus(this.x,this.y-this.height) || returnTileGridStatus(this.x + this.width - 1,this.y - this.height)){
-            //         this.falling = true;
-            //         this.jumping = false;
-            //         this.y = this.y;
-            // }
+            if(returnTileGridStatus(this.x + 5, this.y) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y)){
+                    this.falling = true;
+                    this.jumping = false;
+                    this.y = this.y;
+            }
 
             // CHECK IF MAX JUMP HEIGHT IS REACHED
             if(this.playerCurrentY - this.jumpHeight >= this.y){
-                console.log('max height')
                 this.falling = true;
                 this.jumping = false;
             }
         }
-}
-
-    // CLIMBING
-    // UP
-    if(this.canClimbUp && this.climbingUp){
-        let nextY = this.y;
-
-        if(checkLadder(this.x + TILE_SIZE / 2, this.y - TILE_SIZE)){
-            this.y += this.climbingSpeed;
-        }else{
-            this.y = nextY;
-            this.y = (this.playerRow + 1) * TILE_SIZE;
-        }
-
-    // DOWN
-    }else if(this.canClimbDown && this.climbingDown){
-        let nextY = this.y;
-
-        if(checkLadder(this.x + TILE_SIZE / 2, this.y + TILE_SIZE)){
-            this.y += this.climbingSpeed;
-        }else{
-            this.y = nextY;
-            this.y = (this.playerRow + 2) * TILE_SIZE;
-        }
-
-    // STOPPED CLIMBING
-    }else{
-        this.y = this.y;
-        this.climbingSpeed = 0;
     }
+
 };

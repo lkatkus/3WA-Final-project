@@ -1,4 +1,4 @@
-
+// ========= VARIABLES =========
 var builderLayout; /* lAYOUT GENERATION FORM */
 var tileTypeSelectors; /* TYLE TYPE BUTTON CONTAINER */
 var builderLayoutContainer; /* CONTAINER FOR APPENDING GENERATED LAYOUT */
@@ -7,7 +7,9 @@ var newTileType; /* PLACEHOLDER FOR KEEPING SELECTED TYLE TYPE */
 var levelArray = []; /* PLACEHOLDER FOR LEVEL LAYOUT ARRAY */
 
 var numberOfTileTypes = 23; /* NUMBER OF POSIBLE TILE TYPES FOR GENERATING TILE BUTTONS */
+// ========= END VARIABLES =========
 
+// ========= FUNCTIONS =========
 window.addEventListener('load', function(){
 
     // SELECTORS
@@ -50,7 +52,6 @@ window.addEventListener('load', function(){
             // APPEND ROW DIV
             builderLayoutContainer.appendChild(rowDiv);
         }
-
     });
     // END LAYOUT GENERATION
 
@@ -64,7 +65,6 @@ window.addEventListener('load', function(){
         tileTypeSelectors.appendChild(button);
     }
     // END GENERATE TILE TYPE SELECTOR BUTTONS
-
 
     // GET NEW TILE TYPE
     tileTypeSelectors.addEventListener('mousedown', function(){
@@ -122,7 +122,6 @@ function generateLevelArray(){
             }else{
                 rowArray.push(Number(tiles[j].getAttribute('value')));
             }
-
         };
 
         // PUSH ROW ARRAY TO LEVEL ARRAY
@@ -133,8 +132,39 @@ function generateLevelArray(){
     let levelJSON = JSON.stringify(levelArray);
 
     // FOR TESTING
-    startGame(levelJSON);
+    setupGame(levelJSON);
 
     // ADD DATA TO DB
+};
 
+
+// HELPERS
+function removeRow(row){
+    // CHECK IF ARRAY CONTAINS INFORMAITON
+    if(builderLayoutContainer.childNodes.length > 0){
+        // CHECK WHICH ROW TO REMOVE
+        if(row == "first"){
+            builderLayoutContainer.removeChild(builderLayoutContainer.childNodes[0]);
+        }else{
+            builderLayoutContainer.removeChild(builderLayoutContainer.childNodes[ builderLayoutContainer.childNodes.length - 1 ]);
+        }
+    }
+};
+
+function removeCol(col){
+    // CHECK IF ARRAY CONTAINS INFORMAITON
+    if(builderLayoutContainer.childNodes.length > 0){
+        // CHECK WHICH ROW TO REMOVE
+        if(col == "first"){
+            for(let i = 0; i < builderLayoutContainer.childNodes.length; i++){
+                let row = builderLayoutContainer.childNodes[i];
+                row.removeChild(row.childNodes[0]);
+            }
+        }else{
+            for(let i = 0; i < builderLayoutContainer.childNodes.length; i++){
+                let row = builderLayoutContainer.childNodes[i];
+                row.removeChild(row.childNodes[ row.childNodes.length - 1 ]);
+            }
+        }
+    }
 };
