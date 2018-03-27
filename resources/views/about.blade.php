@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
 
-            <h2>Phat Cat (By <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>)</h2>
+            <h2>Phat The Cat (By <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>)</h2>
 
             <p>This page was made as a final project for 3W Academy Lithuania web developer course. Goals while making this project were:</p>
             <ul>
@@ -28,6 +28,8 @@
                 <li>Add better styling for the website</li>
                 <li>Add "full screen" mode while playing;</li>
                 <li>Finalize game engine;</li>
+                <li>Add sound effects;</li>
+                <li>Add mobile controls?;</li>
                 <li>Add hotseat two player mode;</li>
                 <li>Add websocket capabilities for online play.</li>
             </ul>

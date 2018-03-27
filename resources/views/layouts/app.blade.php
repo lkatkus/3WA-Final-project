@@ -74,7 +74,7 @@
             </div>
         </nav>
 
-        <main class="py-4 bg-info">
+        <main class="bg-info">
             @yield('content')
         </main>
     </div>
@@ -82,14 +82,12 @@
     <footer class="bg-warning">
         <div class="container py-2 ">
             <div class="row">
-                <div class="col-4 ">
-                    About
+                <div class="col-md-8">
+                    <h4>About</h4>
+                    <p>Bacon ipsum dolor amet pancetta sausage picanha flank prosciutto. Hamburger filet mignon pork loin ribeye landjaeger turkey corned beef doner. Chuck corned beef pastrami, swine burgdoggen flank ground round spare ribs ham sausage. </p>
                 </div>
-                <div class="col-4 ">
-                    Social
-                </div>
-                <div class="col-4 ">
-                    Contact
+                <div class="col-md-4">
+                    <h4>Contact</h4>
                 </div>
             </div>
         </div>
@@ -98,7 +96,7 @@
             <div class="container py-2">
                 <div class="row">
                     <div class="col-12">
-                        Copyright 2018, Laimonas Katkus, All rights reserved.
+                        Copyright 2018, <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>, All rights reserved.
                     </div>
                 </div>
             </div>

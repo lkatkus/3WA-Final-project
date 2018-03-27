@@ -166,3 +166,11 @@ function removeCol(col){
         }
     }
 };
+
+function addRow(row){
+
+};
+
+function addCol(col){
+
+};

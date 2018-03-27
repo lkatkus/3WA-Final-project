@@ -25,6 +25,13 @@
                             </form>
 
                             <div class="">
+                                <button type="button" name="button" onclick="addRow('first')">ADD FIRST ROW</button>
+                                <button type="button" name="button" onclick="addRow('last')">ADD LAST ROW</button>
+                                <button type="button" name="button" onclick="addCol('first')">ADD FIRST COLUMN</button>
+                                <button type="button" name="button" onclick="addCol('last')">ADD LAST COLUMN</button>
+                            </div>
+
+                            <div class="">
                                 <button type="button" name="button" onclick="removeRow('first')">REMOVE FIRST ROW</button>
                                 <button type="button" name="button" onclick="removeRow('last')">REMOVE LAST ROW</button>
                                 <button type="button" name="button" onclick="removeCol('first')">REMOVE FIRST COLUMN</button>
