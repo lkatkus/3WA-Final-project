@@ -95,3 +95,11 @@ canvas{
 h2{
     margin-bottom: 0;
 }
+
+.vl {
+    border-left: 2px solid white;
+}
+
+.vr {
+    border-right: 2px solid white;
+}
