@@ -3,6 +3,8 @@ var builderLayout; /* lAYOUT GENERATION FORM */
 var tileTypeSelectors; /* TYLE TYPE BUTTON CONTAINER */
 var builderLayoutContainer; /* CONTAINER FOR APPENDING GENERATED LAYOUT */
 
+var postData = {}; /* OBJECT FOR STORING FORM DATA */
+
 var newTileType; /* PLACEHOLDER FOR KEEPING SELECTED TYLE TYPE */
 var levelArray = []; /* PLACEHOLDER FOR LEVEL LAYOUT ARRAY */
 
@@ -24,7 +26,6 @@ window.addEventListener('load', function(){
 
         // CAPTURE FORM ELEMENTS
         let formElements = document.getElementById("builderLayout").elements;
-        let postData = {}; /* OBJECT FOR STORING FORM DATA */
 
         // PUSH FORM DATA TO PLACEHOLDER OBJECT
         for (let i = 0; i < formElements.length; i++){
@@ -169,8 +170,48 @@ function removeCol(col){
 
 function addRow(row){
 
+    let rowDiv = document.createElement('div');
+    rowDiv.classList.add('layoutRow');
+
+    for(let i = 0; i < postData.layoutCols; i++){
+        // CREATE TILE DIV
+        let tileDiv = document.createElement('div');
+        tileDiv.classList.add('layoutTile');
+        tileDiv.setAttribute('value', 0);
+
+        // APPEND TILE DIV TO ROW DIV
+        rowDiv.appendChild(tileDiv);
+    };
+
+    if(row == "first"){
+        // APPEND BEFORE FIRST ROW
+        builderLayoutContainer.insertBefore(rowDiv, builderLayoutContainer.childNodes[0]);
+    }else{
+        // APPEND AFTER LAST ROW
+        builderLayoutContainer.appendChild(rowDiv);
+    }
 };
 
 function addCol(col){
-
+    if(col == "first"){
+        // APPEND BEFORE FIRST COL
+        for(let i = 0; i < builderLayoutContainer.childNodes.length; i++){
+            // GENERATE NEW TILE DIV
+            let tileDiv = document.createElement('div');
+            tileDiv.classList.add('layoutTile');
+            tileDiv.setAttribute('value', 0);
+            // APPEND TILE DIV
+            builderLayoutContainer.childNodes[i].insertBefore(tileDiv, builderLayoutContainer.childNodes[i].childNodes[0]);
+        }
+    }else{
+        // APPEND AFTER LAST COL
+        for(let i = 0; i < builderLayoutContainer.childNodes.length; i++){
+            // GENERATE NEW TILE DIV
+            let tileDiv = document.createElement('div');
+            tileDiv.classList.add('layoutTile');
+            tileDiv.setAttribute('value', 0);
+            // APPEND TILE DIV
+            builderLayoutContainer.childNodes[i].appendChild(tileDiv);
+        }
+    }
 };
