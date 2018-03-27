@@ -79,7 +79,19 @@ class LevelController extends Controller
      */
     public function update(Request $request, Level $level)
     {
-        //
+        $level = Level::find($level -> id);
+
+        if($level->featured != 1){
+            Level::where('id', $level->id)->update([
+                'featured' => 1
+            ]);
+            return redirect()->action('LevelController@index');
+        }else{
+            Level::where('id', $level->id)->update([
+                'featured' => 0
+            ]);
+            return redirect()->action('LevelController@index');
+        }
     }
 
     /**
@@ -90,6 +102,8 @@ class LevelController extends Controller
      */
     public function destroy(Level $level)
     {
-        //
+        $level = Level::find($level -> id);
+        $level -> delete();
+        return redirect()->action('LevelController@index');
     }
 }
