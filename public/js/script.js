@@ -147,6 +147,7 @@ function removeRow(row){
         }else{
             builderLayoutContainer.removeChild(builderLayoutContainer.childNodes[ builderLayoutContainer.childNodes.length - 1 ]);
         }
+        postData.layoutRows--;
     }
 };
 
@@ -165,6 +166,7 @@ function removeCol(col){
                 row.removeChild(row.childNodes[ row.childNodes.length - 1 ]);
             }
         }
+        postData.layoutCols--;
     }
 };
 
@@ -181,6 +183,7 @@ function addRow(row){
 
         // APPEND TILE DIV TO ROW DIV
         rowDiv.appendChild(tileDiv);
+
     };
 
     if(row == "first"){
@@ -190,6 +193,8 @@ function addRow(row){
         // APPEND AFTER LAST ROW
         builderLayoutContainer.appendChild(rowDiv);
     }
+
+    postData.layoutRows++;
 };
 
 function addCol(col){
@@ -214,4 +219,6 @@ function addCol(col){
             builderLayoutContainer.childNodes[i].appendChild(tileDiv);
         }
     }
+
+    postData.layoutCols++;
 };
