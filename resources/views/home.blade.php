@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-12">
-            <img class="w-100" src="../images/www/placeholder-banner.svg" alt="Phat cat banner">
+            <img class="w-100" src="../images/www/banner-20180327.png" alt="Phat cat banner">
         </div>
     </div>
 
