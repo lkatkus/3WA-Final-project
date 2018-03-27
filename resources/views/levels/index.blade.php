@@ -18,13 +18,12 @@
                 @foreach($levels as $level)
                     <tr>
                         <td>{{ $level -> id }}</td>
-                        <td>{{ $level -> userId }}</td>
+                        <td>{{ $level -> user -> name }}</td>
                         <td>
                             <a href="{{ route('level.show', $level->id )}}">{{ $level -> title }}</a>
                         </td>
                         <td>{{ $level -> description }}</td>
                     </tr>
-
                 @endforeach
 
             </table>

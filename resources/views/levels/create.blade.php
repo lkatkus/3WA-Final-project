@@ -60,6 +60,8 @@
                             <form id="levelLayoutForm" class="" action="{{ route('level.store') }}" method="post">
                                 @csrf
                                 <input id="levelLayoutJSONInput" type="hidden" name="levelLayoutJSON" value="">
+                                <input type="text" name="title" value="">title</input>
+                                <input type="text" name="description" value="">description</input>
                             </form>
 
 

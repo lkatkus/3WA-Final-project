@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Level;
 
 class HomeController extends Controller
 {
@@ -11,10 +12,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +20,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $levels = Level::all();
+        $derp = $levels -> sortByDesc('created_at');
+        return view('home', compact('levels','derp'));
     }
 }

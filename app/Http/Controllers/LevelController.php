@@ -39,8 +39,8 @@ class LevelController extends Controller
     {
         $level = new Level;
         $level -> userId = Auth::user()->id;
-        $level -> title = 'default title';
-        $level -> description = 'default description';
+        $level -> title = $request -> title;
+        $level -> description = $request -> description;
         $level -> layout = $request -> levelLayoutJSON;
 
         $level -> save();

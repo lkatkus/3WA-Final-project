@@ -94,7 +94,7 @@ Player.prototype.move = function(){
             // }
 
             // CHECKING TILE ABOVE PLAYER IS EMPTY
-            if(returnTileGridStatus(this.x + 5, this.y) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y)){
+            if(returnTileGridStatus(this.x + 5, this.y + 5) || returnTileGridStatus(this.x + TILE_SIZE - 5, this.y + 5)){
                     this.falling = true;
                     this.jumping = false;
                     this.y = this.y;

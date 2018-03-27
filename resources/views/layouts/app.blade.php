@@ -88,6 +88,9 @@
                 </div>
                 <div class="col-md-4">
                     <h4>Contact</h4>
+                    <p><a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a></p>
+                    <p><a href="tel:">00 370 671 86770</a></p>
+                    <p><a href="mailto:laimonas@katkus.eu">laimonas@katkus.eu</a></p>
                 </div>
             </div>
         </div>

@@ -22,7 +22,8 @@ function returnTileGridStatus(x, y){
     let gridCol = Math.floor(x / TILE_SIZE);
 
     // CHECK IF TILE IS FREE (false) OR TAKEN (true)
-    if(sceneLayout[gridRow][gridCol] == -1
+    if(gridRow < 0 || gridRow > sceneLayout.length - 1
+        || sceneLayout[gridRow][gridCol] == -1
         || sceneLayout[gridRow][gridCol] > 0 && sceneLayout[gridRow][gridCol] <= 5
         || sceneLayout[gridRow][gridCol] == 21
         || sceneLayout[gridRow][gridCol] >= 181 && sceneLayout[gridRow][gridCol] <= 183

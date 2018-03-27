@@ -13,21 +13,12 @@
         <div class="col-12">
             <h2 class="text-center bg-warning text-uppercase">Featured</h2>
             <div class="row no-gutters">
-                <div class="col-4">
-                    <a href="#"><img class="w-100" src="../images/www/placeholder-thumbnail.svg"></a>
-                </div>
-                <div class="col-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
+                    @foreach($levels as $level)
+                        @if($level->featured)
+                            @component('components.card',['level' => $level, 'type' => 'featured'])
+                            @endcomponent
+                        @endif
+                    @endforeach
                 <div class="col-4 d-flex justify-content-center align-items-center bg-warning">
                     <div class="">
                         Read more
@@ -41,26 +32,15 @@
         <div class="col-12">
             <h2 class="text-center bg-danger text-uppercase">Newest</h2>
             <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
+                @foreach($derp as $level)
+                    @component('components.card',['level' => $level, 'type' => 'newest'])
+                    @endcomponent
+                @endforeach
+            <div class="col-4 d-flex justify-content-center align-items-center bg-danger">
+                <div class="">
+                    Read more
                 </div>
-                <div class="col-md-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-md-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-md-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-md-4">
-                    <img class="w-100" src="../images/www/placeholder-thumbnail.svg">
-                </div>
-                <div class="col-4 d-flex justify-content-center align-items-center bg-danger">
-                    <div class="">
-                        Read more
-                    </div>
-                </div>
+            </div>
             </div>
         </div>
     </div>
