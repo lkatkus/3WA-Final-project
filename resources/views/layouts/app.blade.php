@@ -76,36 +76,36 @@
             </div>
         </nav>
 
-        <main class="bg-info">
+        <main>
             @yield('content')
         </main>
     </div>
 
     <footer class="bg-warning">
         <div class="container py-3 ">
-            <div class="row">
-                <div class="col-md-8">
-                    <h4 class="sectionHeader">About</h4>
-                    <p>Bacon ipsum dolor amet pancetta sausage picanha flank prosciutto. Hamburger filet mignon pork loin ribeye landjaeger turkey corned beef doner. Chuck corned beef pastrami, swine burgdoggen flank ground round spare ribs ham sausage. </p>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="sectionHeader">Contact</h4>
-                    <p><a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a></p>
-                    <p><a href="mailto:laimonas@katkus.eu">laimonas@katkus.eu</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-success">
-            <div class="container py-3">
+            <!-- FOOTER INFO -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-8">
+                        <h4 class="sectionHeader">About</h4>
+                        <p>Bacon ipsum dolor amet pancetta sausage picanha flank prosciutto. Hamburger filet mignon pork loin ribeye landjaeger turkey corned beef doner. Chuck corned beef pastrami, swine burgdoggen flank ground round spare ribs ham sausage. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="sectionHeader">Contact</h4>
+                        <p><a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a></p>
+                        <p><a href="mailto:laimonas@katkus.eu">laimonas@katkus.eu</a></p>
+                    </div>
+                </div>
+            <!-- END FOOTER INFO -->
+
+            <!-- COPYRIGHTS -->
+                <div class="row">
+                    <div class="col-12 text-center">
                         Copyright 2018, <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>, All rights reserved.
                     </div>
                 </div>
-            </div>
+            <!-- END COPYRIGHTS -->
         </div>
-
     </footer>
+
 </body>
 </html>

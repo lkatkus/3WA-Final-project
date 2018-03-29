@@ -53,6 +53,10 @@ window.addEventListener('load', function(){
             // APPEND ROW DIV
             builderLayoutContainer.appendChild(rowDiv);
         }
+
+        document.getElementById('layoutSetupContainer').classList.add('d-none');
+        document.getElementById('layoutContainer').classList.remove('d-none');
+
     });
     // END LAYOUT GENERATION
 

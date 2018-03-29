@@ -2,8 +2,11 @@
 @section('content')
 
     <div class="container">
-        <div class="row py-3">
+        <div class="row no-gutters bg-info">
             <div class="col-12">
+
+                <h2 class="text-center bg-warning text-uppercase sectionHeader">Levels</h2>
+
                 <table class="table">
                     <tr>
                         <th>ID</th>

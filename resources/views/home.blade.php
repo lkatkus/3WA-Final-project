@@ -19,19 +19,6 @@
     </div>
     <!-- END TOP BANNER FOR XS -->
 
-    <!-- QUOTE SECTION -->
-    <section>
-        <div class="row no-gutters">
-            <div class="col-12  bg-danger  py-5">
-                <blockquote class="blockquote text-center">
-                    <p class="mb-0">Stop calling me fat! I have big bones.</p>
-                    <footer class="blockquote-footer">Phat The Cat</footer>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-    <!-- END QUOTE SECTION -->
-
     <!-- DISPLAY FEATURED LEVELS -->
     <section>
         <div class="row">
@@ -61,18 +48,18 @@
             <div class="col-12  bg-primary py-4 text-center">
                 <h2 class="text-uppercase sectionHeader">Current total</h2>
                 <br>
-                <div class="row no-gutters">
+                <div class="row no-gutters sectionHeader">
                     <div class="col-4 vr">
-                        <h3>Users</h3>
-                        <p>{{ $totalUsers }}</p>
+                        <h3 class="">Users</h3>
+                        <h3>{{ $totalUsers }}</h3>
                     </div>
                     <div class="col-4 vl vr">
                         <h3>Levels</h3>
-                        <p>{{ $totalLevels }}</p>
+                        <h3>{{ $totalLevels }}</h3>
                     </div>
                     <div class="col-4 vl">
                         <h3>Games</h3>
-                        <p>245</p>
+                        <h3>245</h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +72,7 @@
         <div class="row no-gutters d-block d-sm-none">
             <div class="col-12  bg-primary py-4 text-center">
                 <h2 class="text-uppercase sectionHeader">Current total</h2>
-                <div class="row no-gutters">
+                <div class="row no-gutters sectionHeader">
                     <div class="col-6"><h4>Users</h4></div>
                     <div class="col-6"><h4>{{ $totalUsers }}</h4></div>
 
@@ -124,6 +111,19 @@
         </div>
     </section>
     <!-- END DISPLAY LEVELS ORDERED BY DATE -->
+
+    <!-- QUOTE SECTION -->
+    <section>
+        <div class="row no-gutters">
+            <div class="col-12  bg-info  py-5">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0">Stop calling me fat! I have big bones.</p>
+                    <footer class="blockquote-footer">Phat The Cat</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    <!-- END QUOTE SECTION -->
 
     <!-- BOTTOM BANNER -->
     <div class="row d-none d-sm-block">
