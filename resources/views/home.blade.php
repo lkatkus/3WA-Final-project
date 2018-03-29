@@ -4,14 +4,20 @@
 <div class="container">
 
     <!-- TOP BANNER -->
-    <div class="row">
+    <div class="row d-none d-sm-block">
         <div class="col-12">
             <img class="w-100" src="../images/www/banner-top-20180329.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END TOP BANNER -->
 
-    <!-- !!! ADD XS BANNER !!! -->
+    <!-- TOP BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banner-top-small-20180329.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END TOP BANNER FOR XS -->
 
     <!-- QUOTE SECTION -->
     <section>
@@ -120,14 +126,20 @@
     <!-- END DISPLAY LEVELS ORDERED BY DATE -->
 
     <!-- BOTTOM BANNER -->
-    <div class="row">
+    <div class="row d-none d-sm-block">
         <div class="col-12">
-            <img class="w-100" src="../images/www/banner-bottom-20180329.png" alt="Phat bottom cat banner">
+            <img class="w-100" src="../images/www/banner-bottom-20180329.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END BOTTOM BANNER -->
 
-    <!-- !!! ADD XS BANNER !!! -->
+    <!-- BOTTOM BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banner-bottom-small-20180329.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END BOTTOM BANNER FOR XS -->
 
 </div>
 @endsection
