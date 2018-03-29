@@ -1,4 +1,4 @@
-<div class="col-4 levelCard">
+<div class="col-sm-6 col-md-4 levelCard">
     <img class="w-100" src="../images/www/placeholder-thumbnail.svg" alt="Level thumbnail">
     <a href="{{ route('level.show', $level->id )}}">
         <div class="levelCardTag d-flex justify-content-center align-items-center @if($type == 'featured') bg-warning @else bg-danger @endif">

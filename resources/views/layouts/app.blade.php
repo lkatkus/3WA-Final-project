@@ -37,10 +37,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a class="nav-link" href="{{ route('level.index') }}">All levels</a></li>
-                        @if( Auth::check())
-                            <li><a class="nav-link" href="{{ route('level.create')}}">Create level</a></li>
-                            <li><a class="nav-link" href="#">Your levels</a></li>
-                        @endif
+                        <!-- USER MENU -->
+                            @if( Auth::check())
+                                <li><a class="nav-link" href="{{ route('userLevels') }}">Your levels</a></li>
+                                <li><a class="nav-link" href="{{ route('level.create')}}">Create level</a></li>
+                            @endif
+                        <!-- END USER MENU -->
                         <li><a class="nav-link" href="{{ route('about') }}">About</a></li>
                     </ul>
 
@@ -80,23 +82,22 @@
     </div>
 
     <footer class="bg-warning">
-        <div class="container py-2 ">
+        <div class="container py-3 ">
             <div class="row">
                 <div class="col-md-8">
-                    <h4>About</h4>
+                    <h4 class="sectionHeader">About</h4>
                     <p>Bacon ipsum dolor amet pancetta sausage picanha flank prosciutto. Hamburger filet mignon pork loin ribeye landjaeger turkey corned beef doner. Chuck corned beef pastrami, swine burgdoggen flank ground round spare ribs ham sausage. </p>
                 </div>
                 <div class="col-md-4">
-                    <h4>Contact</h4>
+                    <h4 class="sectionHeader">Contact</h4>
                     <p><a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a></p>
-                    <p><a href="tel:">00 370 671 86770</a></p>
                     <p><a href="mailto:laimonas@katkus.eu">laimonas@katkus.eu</a></p>
                 </div>
             </div>
         </div>
 
         <div class="bg-success">
-            <div class="container py-2">
+            <div class="container py-3">
                 <div class="row">
                     <div class="col-12">
                         Copyright 2018, <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>, All rights reserved.

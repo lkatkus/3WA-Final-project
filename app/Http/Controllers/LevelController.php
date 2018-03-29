@@ -19,6 +19,11 @@ class LevelController extends Controller
         return view('levels.index', compact('levels'));
     }
 
+    public function userLevels(){
+        $levels = Level::where('userId', Auth::user()->id)->get();
+        return view ('levels.index', compact('levels'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

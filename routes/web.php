@@ -11,14 +11,10 @@
 |
 */
 
-
+Auth::routes();
 
 Route::get('/','HomeController@index')->name('home');
-
-Route::get('/about', function(){
-    return view('about');
-})->name('about');
-
-Auth::routes();
+Route::get('/about', function(){ return view('about'); })->name('about');
+Route::get('/level/user', 'LevelController@userLevels')->name('userLevels');
 
 Route::resource('/level', 'LevelController');
