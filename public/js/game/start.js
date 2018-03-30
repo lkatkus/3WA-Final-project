@@ -83,6 +83,8 @@ function makeWorld(){
 
 // TRIGGERED BY USER
 function startGame(){
+    document.getElementById('startButton').classList.add('d-none');
+
     console.log('=== START GAME ===');
     myAnimationInterval = setInterval(function() {
         mainMove();
@@ -93,8 +95,7 @@ function startGame(){
 function mainMove(){
     player.checkPosition();
     player.move();
-
-    cameraFollow();
+    player.cameraFollow();
 };
 
 function mainDraw(){

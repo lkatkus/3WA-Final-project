@@ -1,6 +1,6 @@
-function cameraFollow() {
-    camPanX = player.x - canvas.width / 2;
+Player.prototype.cameraFollow = function() {
 
+    camPanX = player.x - canvas.width / 2;
     camPanY = player.y - canvas.height / 2;
 
     var cameraFocusCenterY = Math.floor(camPanY + canvas.height / 4 * 3);

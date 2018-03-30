@@ -22,9 +22,7 @@
         <div class="row">
             <div class="col-12">
 
-                <div>
-                    <button class="btn btn-primary" type="button" onclick="startGame()">Start game</button>
-                </div>
+                <button id="startButton" class="btn btn-danger" type="button" onclick="startGame()">Start game</button>
 
                 <div id="canvasContainer">
                     <canvas id="sceneCanvas"></canvas>
