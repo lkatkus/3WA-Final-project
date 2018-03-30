@@ -6,7 +6,7 @@
     <!-- TOP BANNER -->
     <div class="row d-none d-sm-block">
         <div class="col-12">
-            <img class="w-100" src="../images/www/banner-top-20180329.png" alt="Phat The Cat Banner">
+            <img class="w-100" src="../images/www/banners/banner-main-top.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END TOP BANNER -->
@@ -14,7 +14,7 @@
     <!-- TOP BANNER FOR XS -->
     <div class="row d-block d-sm-none">
         <div class="col-12">
-            <img class="w-100" src="../images/www/banner-top-small-20180329.png" alt="Phat The Cat Banner">
+            <img class="w-100" src="../images/www/banners/banner-main-top-small.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END TOP BANNER FOR XS -->
@@ -44,9 +44,9 @@
 
     <!-- CURRENT STATUS BIGGER THAN XS -->
     <section>
-        <div class="row no-gutters d-none d-sm-block">
-            <div class="col-12  bg-primary py-4 text-center">
-                <h2 class="text-uppercase sectionHeader">Current total</h2>
+        <div class="row no-gutters d-none d-sm-block bg-primary text-center py-3">
+            <h2 class="col-12 text-uppercase sectionHeader">Current total</h2>
+            <div class="col-12">
                 <br>
                 <div class="row no-gutters sectionHeader">
                     <div class="col-4 vr">
@@ -128,7 +128,7 @@
     <!-- BOTTOM BANNER -->
     <div class="row d-none d-sm-block">
         <div class="col-12">
-            <img class="w-100" src="../images/www/banner-bottom-20180329.png" alt="Phat The Cat Banner">
+            <img class="w-100" src="../images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END BOTTOM BANNER -->
@@ -136,7 +136,7 @@
     <!-- BOTTOM BANNER FOR XS -->
     <div class="row d-block d-sm-none">
         <div class="col-12">
-            <img class="w-100" src="../images/www/banner-bottom-small-20180329.png" alt="Phat The Cat Banner">
+            <img class="w-100" src="../images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
         </div>
     </div>
     <!-- END BOTTOM BANNER FOR XS -->

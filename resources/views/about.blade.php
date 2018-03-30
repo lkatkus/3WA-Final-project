@@ -2,8 +2,27 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+
+    <!-- TOP BANNER -->
+    <div class="row d-none d-sm-block">
         <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-top.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END TOP BANNER -->
+
+    <!-- TOP BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-top-small.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END TOP BANNER FOR XS -->
+
+    <div class="row bg-info no-gutters">
+        <h2 class="col-12 text-center bg-danger text-uppercase sectionHeader">About</h2>
+
+        <div class="col-12 p-4">
 
             <h2>Phat The Cat (By <a href="http://www.katkus.eu" target="_blank">Laimonas Katkus</a>)</h2>
 
@@ -29,12 +48,29 @@
                 <li>Add "full screen" mode while playing;</li>
                 <li>Finalize game engine;</li>
                 <li>Add sound effects;</li>
-                <li>Add mobile controls?;</li>
+                <li>Add mobile controls;</li>
                 <li>Add hotseat two player mode;</li>
                 <li>Add websocket capabilities for online play.</li>
             </ul>
 
         </div>
     </div>
+
+    <!-- BOTTOM BANNER -->
+    <div class="row d-none d-sm-block">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END BOTTOM BANNER -->
+
+    <!-- BOTTOM BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END BOTTOM BANNER FOR XS -->
+
 </div>
 @endsection

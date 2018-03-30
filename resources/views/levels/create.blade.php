@@ -4,14 +4,32 @@
 <!-- JAVASCRIPT -->
 <script src="{{ asset('js/script.js') }}" defer></script>
 
-    <div class="container bg-info">
+<!-- CONTENT -->
+    <div class="container">
+
+        <!-- BANNERS -->
+            <!-- TOP BANNER -->
+                <div class="row d-none d-sm-block">
+                    <div class="col-12">
+                        <img class="w-100" src="../images/www/banners/banner-top.png" alt="Phat The Cat Banner">
+                    </div>
+                </div>
+            <!-- END TOP BANNER -->
+
+            <!-- TOP BANNER FOR XS -->
+                <div class="row d-block d-sm-none">
+                    <div class="col-12">
+                        <img class="w-100" src="../images/www/banners/banner-top-small.png" alt="Phat The Cat Banner">
+                    </div>
+                </div>
+            <!-- END TOP BANNER FOR XS -->
+        <!-- BANNERS -->
 
         <!-- LAYOUT SETUP SECTION -->
-            <section id="layoutSetupContainer">
+            <section id="layoutSetupContainer" class="bg-info">
                 <div class="row no-gutters">
-                    <div id="builderButtonContainer" class="col-12">
-                        <h3 class="text-center bg-danger text-uppercase sectionHeader">LAYOUT SETTINGS</h3>
-
+                    <h3 class="text-center bg-danger text-uppercase sectionHeader col-12">LAYOUT SETTINGS</h3>
+                    <div class="col-12 p-4">
                         <!-- MAIN LAYOUT SETUP -->
                             <form id="builderLayout" class="row no-gutters">
                                 <div class="col-12">
@@ -28,11 +46,11 @@
         <!-- END LAYOUT SETUP SECTION -->
 
         <!-- LEVEL LAYOUT SECTION -->
-            <section id="layoutContainer" class="d-none">
-                <h3 class="text-center bg-danger text-uppercase sectionHeader">ADJUST LAYOUT</h3>
+            <section id="layoutContainer" class="d-none bg-info ">
 
-                <!-- LAYOUT EDITING BUTTONS -->
-                    <div class="row no-gutters py-3">
+                <!-- LAYOUT EDITING BUTTON CONTAINER -->
+                    <div class="row no-gutters">
+                        <h3 class="text-center bg-danger text-uppercase sectionHeader col-12">ADJUST LAYOUT</h3>
                         <div class="col-12">
                                 <div class="row no-gutters">
                                     <button type="button" class="col-3" onclick="addRow('first')">ADD FIRST ROW</button>
@@ -40,7 +58,6 @@
                                     <button type="button" class="col-3" onclick="addCol('first')">ADD FIRST COLUMN</button>
                                     <button type="button" class="col-3" onclick="addCol('last')">ADD LAST COLUMN</button>
                                 </div>
-
                                 <div class="row no-gutters">
                                     <button type="button" class="col-3" onclick="removeRow('first')">REMOVE FIRST ROW</button>
                                     <button type="button" class="col-3" onclick="removeRow('last')">REMOVE LAST ROW</button>
@@ -49,20 +66,18 @@
                                 </div>
                         </div>
                     </div>
-                <!-- END LAYOUT EDITING BUTTONS -->
+                <!-- END LAYOUT EDITING BUTTON CONTAINER -->
 
                 <!-- TILE PALETTE -->
                     <div class="row no-gutters py-3">
-                        <div class="col-12">
-                            <h3 class="text-center bg-danger text-uppercase sectionHeader">TILE PALETTE</h3>
-                        </div>
+                        <h3 class="text-center bg-danger text-uppercase sectionHeader col-12">TILE PALETTE</h3>
                         <!-- TILE PICKER -->
                             <div id="tileTypeSelectors" class="col-12">
                                 <!-- DELETING TILE -->
                                 <button class="builderButton" value="0">0</button>
                                 <!-- PLAYER SPAWN LOCATION -->
                                 <button class="builderButton" value="x" style="background-image: url('../images/player-test.png');">X</button>
-                                <!-- TILE TYPE BUTTONS WILL BE APPENDED WITH JS AFTER THIS -->
+                                <!-- OTHER TILE TYPE BUTTONS WILL BE APPENDED HERE WITH JS -->
                             </div>
                         <!-- END TILE PICKER -->
                     </div>
@@ -70,32 +85,47 @@
 
                 <!-- GENERATED GRID CONTAINER -->
                     <div class="row no-gutters py-3">
-                        <div class="col-12">
-                            <h3 class="text-center bg-danger text-uppercase sectionHeader">LEVEL LAYOUT</h3>
-                        </div>
+                        <h3 class="text-center bg-danger text-uppercase sectionHeader col-12">LEVEL LAYOUT</h3>
                         <div id="builderLayoutContainer" class="col-12"></div>
                     </div>
                 <!-- END GENERATED GRID CONTAINER -->
 
                 <!-- ADD LAYOUT DETAILS AND SUBMIT -->
                     <div class="row no-gutters">
-                        <div class="col-12">
-                            <h3 class="text-center bg-danger text-uppercase sectionHeader">LEVEL DETAILS</h3>
-                        </div>
-                        <div class="col-12">
+                        <h3 class="text-center bg-danger text-uppercase sectionHeader col-12">LEVEL DETAILS</h3>
+                        <div class="col-12 p-4">
                             <form id="levelLayoutForm" class="" action="{{ route('level.store') }}" method="post">
                                 @csrf
                                 <input id="levelLayoutJSONInput" type="hidden" name="levelLayoutJSON">
                                 <input type="text" name="title">title</input>
                                 <input type="text" name="description">description</input>
                             </form>
+                            <button class="btn btn-primary col-12" type="button" onclick="generateLevelArray()">Make level</button>
                         </div>
-                        <button class="btn btn-primary col-12" type="button" onclick="generateLevelArray()">Make level</button>
                     </div>
                 <!-- END ADD LAYOUT DETAILS AND SUBMIT -->
             </section>
         <!-- END LEVEL LAYOUT SECTION -->
 
+        <!-- BANNERS -->
+            <!-- BOTTOM BANNER -->
+                <div class="row d-none d-sm-block">
+                    <div class="col-12">
+                        <img class="w-100" src="../images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
+                    </div>
+                </div>
+            <!-- END BOTTOM BANNER -->
+
+            <!-- BOTTOM BANNER FOR XS -->
+                <div class="row d-block d-sm-none">
+                    <div class="col-12">
+                        <img class="w-100" src="../images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
+                    </div>
+                </div>
+            <!-- END BOTTOM BANNER FOR XS -->
+        <!-- END BANNERS -->
+
     </div>
+<!-- END CONTENT -->
 
 @endsection

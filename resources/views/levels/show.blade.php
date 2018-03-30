@@ -10,6 +10,7 @@
         <script src="{{ asset('js/game/player/player.checkPosition.js') }}" defer></script>
         <script src="{{ asset('js/game/player/player.controls.js') }}" defer></script>
         <script src="{{ asset('js/game/player/player.move.js') }}" defer></script>
+        <script src="{{ asset('js/game/player/player.camera.js') }}" defer></script>
 
         <!-- FOR SETTING CHOSEN LAYOUT -->
         <script type="text/javascript">

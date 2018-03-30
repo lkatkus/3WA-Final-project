@@ -17,13 +17,8 @@
 
 
 #builderLayoutContainer{
-    background-color: red;
     display: inline-block;
     overflow-x: scroll;
-}
-
-#builderButtonContainer{
-    background-color: grey;
 }
 
 #tileTypeSelectors{
@@ -40,7 +35,6 @@
 }
 
 .layoutRow{
-    background-color: yellow;
     padding: 0;
     margin: 0;
     display: flex;

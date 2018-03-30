@@ -93,11 +93,20 @@ function startGame(){
 function mainMove(){
     player.checkPosition();
     player.move();
+
+    cameraFollow();
 };
 
 function mainDraw(){
     void ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.save();
+    ctx.translate(-camPanX, -camPanY);
+
     drawScene();
+
+    ctx.restore();
+
     player.draw();
 };
 
