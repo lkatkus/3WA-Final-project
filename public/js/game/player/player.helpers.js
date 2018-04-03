@@ -25,9 +25,7 @@ function returnTileGridStatus(x, y){
     if(gridRow < 0 || gridRow > sceneLayout.length - 1
         || sceneLayout[gridRow][gridCol] == -1
         || sceneLayout[gridRow][gridCol] > 0 && sceneLayout[gridRow][gridCol] <= 5
-        || sceneLayout[gridRow][gridCol] == 21
-        || sceneLayout[gridRow][gridCol] >= 181 && sceneLayout[gridRow][gridCol] <= 183
-        || sceneLayout[gridRow][gridCol] >= 208 && sceneLayout[gridRow][gridCol] <= 210
+        || sceneLayout[gridRow][gridCol] >= 24 && sceneLayout[gridRow][gridCol] <= 30
         || sceneLayout[gridRow][gridCol] === undefined){
         return true;
     }else{

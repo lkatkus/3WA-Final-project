@@ -6,7 +6,7 @@ Player.prototype.move = function(){
         let nextX = this.x;
         this.x -= this.speedX;
 
-        if(returnTileGridStatus(this.x, this.y) && returnTileGridStatus(this.x, this.y + TILE_SIZE)){
+        if(returnTileGridStatus(this.x, this.y) || returnTileGridStatus(this.x, this.y + TILE_SIZE - 1)){
             this.x = nextX;
         }else{
 
@@ -31,7 +31,7 @@ Player.prototype.move = function(){
         let nextX = this.x;
         this.x += this.speedX;
 
-        if(returnTileGridStatus(this.x + TILE_SIZE,this.y) && returnTileGridStatus(this.x + TILE_SIZE, this.y + TILE_SIZE)){
+        if(returnTileGridStatus(this.x + TILE_SIZE, this.y) || returnTileGridStatus(this.x + TILE_SIZE, this.y + TILE_SIZE - 1)){
             this.x = nextX;
         }else{
             // ACCELERATION
