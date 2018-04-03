@@ -8,7 +8,7 @@ var postData = {}; /* OBJECT FOR STORING FORM DATA */
 var newTileType; /* PLACEHOLDER FOR KEEPING SELECTED TYLE TYPE */
 var levelArray = []; /* PLACEHOLDER FOR LEVEL LAYOUT ARRAY */
 
-var numberOfTileTypes = 23; /* NUMBER OF POSIBLE TILE TYPES FOR GENERATING TILE BUTTONS */
+var numberOfTileTypes = 30; /* NUMBER OF POSIBLE TILE TYPES FOR GENERATING TILE BUTTONS */
 // ========= END VARIABLES =========
 
 // ========= FUNCTIONS =========
@@ -19,46 +19,49 @@ window.addEventListener('load', function(){
     tileTypeSelectors = document.getElementById('tileTypeSelectors');
     builderLayoutContainer = document.getElementById('builderLayoutContainer');
 
-    // LAYOUT GENERATION
-    builderLayout.addEventListener('submit', function(event){
-        // PREVENT FORM SUBMIT
-        event.preventDefault();
+    // CHECK IF builderLayout EXISTS
+    if(builderLayout){
+        // LAYOUT GENERATION
+        builderLayout.addEventListener('submit', function(event){
+            // PREVENT FORM SUBMIT
+            event.preventDefault();
 
-        // CAPTURE FORM ELEMENTS
-        let formElements = document.getElementById("builderLayout").elements;
+            // CAPTURE FORM ELEMENTS
+            let formElements = document.getElementById("builderLayout").elements;
 
-        // PUSH FORM DATA TO PLACEHOLDER OBJECT
-        for (let i = 0; i < formElements.length; i++){
-            if (formElements[i].type != "submit"){
-                postData[formElements[i].name] = formElements[i].value;
-            };
-        };
-
-        // CREATE TILES AND APPEND TO CONTAINER
-        for(let i = 0; i < postData.layoutRows; i++){
-            // CREATE ROW DIV
-            let rowDiv = document.createElement('div');
-            rowDiv.classList.add('layoutRow');
-
-            for(let j = 0; j < postData.layoutCols; j++){
-                // CREATE TILE DIV
-                let tileDiv = document.createElement('div');
-                tileDiv.classList.add('layoutTile');
-                tileDiv.setAttribute('value', 0);
-
-                // APPEND TILE DIV TO ROW DIV
-                rowDiv.appendChild(tileDiv);
+            // PUSH FORM DATA TO PLACEHOLDER OBJECT
+            for (let i = 0; i < formElements.length; i++){
+                if (formElements[i].type != "submit"){
+                    postData[formElements[i].name] = formElements[i].value;
+                };
             };
 
-            // APPEND ROW DIV
-            builderLayoutContainer.appendChild(rowDiv);
-        }
+            // CREATE TILES AND APPEND TO CONTAINER
+            for(let i = 0; i < postData.layoutRows; i++){
+                // CREATE ROW DIV
+                let rowDiv = document.createElement('div');
+                rowDiv.classList.add('layoutRow');
 
-        document.getElementById('layoutSetupContainer').classList.add('d-none');
-        document.getElementById('layoutContainer').classList.remove('d-none');
+                for(let j = 0; j < postData.layoutCols; j++){
+                    // CREATE TILE DIV
+                    let tileDiv = document.createElement('div');
+                    tileDiv.classList.add('layoutTile');
+                    tileDiv.setAttribute('value', 0);
 
-    });
-    // END LAYOUT GENERATION
+                    // APPEND TILE DIV TO ROW DIV
+                    rowDiv.appendChild(tileDiv);
+                };
+
+                // APPEND ROW DIV
+                builderLayoutContainer.appendChild(rowDiv);
+            }
+
+            document.getElementById('layoutSetupContainer').classList.add('d-none');
+            document.getElementById('layoutContainer').classList.remove('d-none');
+
+        });
+        // END LAYOUT GENERATION
+    }
 
     // GENERATE TILE TYPE SELECTOR BUTTONS
     for(let i = 1; i <= numberOfTileTypes; i++){
@@ -66,7 +69,7 @@ window.addEventListener('load', function(){
         button.setAttribute('value', i);
         button.appendChild(document.createTextNode(i));
         button.classList.add('builderButton');
-        button.style.backgroundImage  = `url(\"../images/tiles/tile-${i}.png\")`;
+        button.style.backgroundImage  = `url(\"/images/tiles/tile-${i}.png\")`;
         tileTypeSelectors.appendChild(button);
     }
     // END GENERATE TILE TYPE SELECTOR BUTTONS
@@ -90,13 +93,13 @@ window.addEventListener('load', function(){
         if(tile.classList.contains('layoutTile')){
             if(newTileType != 0 && newTileType != 'x'){
                 // APPLY VALUE
-                tile.style.backgroundImage  = `url(\"../images/tiles/tile-${newTileType}.png\")`;
+                tile.style.backgroundImage  = `url(\"/images/tiles/tile-${newTileType}.png\")`;
                 tile.setAttribute('value', newTileType);
             }else if(newTileType == 0){
                 tile.style.backgroundImage  = ``;
                 tile.setAttribute('value', newTileType);
             }else if(newTileType == 'x'){
-                tile.style.backgroundImage  = `url(\"../images/player-test.png\")`;
+                tile.style.backgroundImage  = `url(\"/images/player-test.png\")`;
                 tile.setAttribute('value', newTileType);
             }
         };
@@ -139,7 +142,6 @@ function generateLevelArray(){
     document.getElementById("levelLayoutJSONInput").setAttribute('value', levelJSON);
     document.getElementById("levelLayoutForm").submit();
 };
-
 
 // HELPERS
 function removeRow(row){

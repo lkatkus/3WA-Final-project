@@ -6,7 +6,7 @@
         <!-- TOP BANNER -->
         <div class="row d-none d-sm-block">
             <div class="col-12">
-                <img class="w-100" src="../images/www/banners/banner-top.png" alt="Phat The Cat Banner">
+                <img class="w-100" src="/images/www/banners/banner-top.png" alt="Phat The Cat Banner">
             </div>
         </div>
         <!-- END TOP BANNER -->
@@ -14,7 +14,7 @@
         <!-- TOP BANNER FOR XS -->
         <div class="row d-block d-sm-none">
             <div class="col-12">
-                <img class="w-100" src="../images/www/banners/banner-top-small.png" alt="Phat The Cat Banner">
+                <img class="w-100" src="/images/www/banners/banner-top-small.png" alt="Phat The Cat Banner">
             </div>
         </div>
         <!-- END TOP BANNER FOR XS -->
@@ -35,7 +35,7 @@
                             <th>Description</th>
                             <th>Status</th>
                             @if(Auth::check())
-                                <th colspan="2">Controls</th>
+                                <th colspan="3">Controls</th>
                             @endif
                         </tr>
 
@@ -57,7 +57,12 @@
                                                 <button class="btn btn-danger" type="submit" name="button">Delete</button>
                                             </form>
                                         </td>
-                                    @else
+                                        <td>
+                                            <form action="{{ route('level.edit', $level-> id ) }}" method="get">
+                                                <button class="btn btn-warning" type="submit">Edit</button>
+                                            </form>
+                                        </td>
+                                    @elseif(Auth::check())
                                         <td></td>
                                     @endif
                                 <!-- END USER CONTROLS -->
@@ -65,7 +70,7 @@
                                 <!-- ADMIN CONTROLS -->
                                     @if(Auth::check() && Auth::user()->role == 'admin')
                                         <td>
-                                            <form action="{{ route('level.update', $level-> id ) }}" method="post">
+                                            <form action="{{ route('featureLevel', $level-> id ) }}" method="post">
                                                 @csrf
                                                 @method('put')
                                                 <button class="btn btn-primary" type="submit" name="button">Featured</button>
@@ -84,7 +89,7 @@
         <!-- BOTTOM BANNER -->
         <div class="row d-none d-sm-block">
             <div class="col-12">
-                <img class="w-100" src="../images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
+                <img class="w-100" src="/images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
             </div>
         </div>
         <!-- END BOTTOM BANNER -->
@@ -92,7 +97,7 @@
         <!-- BOTTOM BANNER FOR XS -->
         <div class="row d-block d-sm-none">
             <div class="col-12">
-                <img class="w-100" src="../images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
+                <img class="w-100" src="/images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
             </div>
         </div>
         <!-- END BOTTOM BANNER FOR XS -->

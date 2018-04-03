@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LevelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct(){
+        $this->middleware('user')->except('index','show');
+    }
+
     public function index()
     {
         $levels = Level::all();
@@ -25,22 +25,11 @@ class LevelController extends Controller
         return view ('levels.index', compact('levels','totalLevels'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('levels.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $level = new Level;
@@ -54,38 +43,37 @@ class LevelController extends Controller
         return redirect()->action('LevelController@index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
     public function show(Level $level)
     {
         return view('levels.show', compact('level'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Level $level)
     {
-        //
+        // CHECK IF USER IS AUTHOR OF LEVEL
+        if(Auth::user() -> id == $level -> userId || Auth::user() -> role == 'admin'){
+            $level = Level::where('id', $level->id)->first();
+            return view('levels.edit', compact('level'));
+        }else{
+            return abort(404);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Level $level)
     {
         $level = Level::find($level -> id);
+        Level::where('id', $level->id)->update([
+            'title' => $request -> title,
+            'description' => $request -> description,
+            'layout' => $request -> levelLayoutJSON
+        ]);
+
+        return redirect()->action('LevelController@index');
+    }
+
+    public function featureLevel($id)
+    {
+        $level = Level::where('id', $id)->first();
 
         if($level->featured != 1){
             Level::where('id', $level->id)->update([
@@ -100,12 +88,6 @@ class LevelController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Level $level)
     {
         $level = Level::find($level -> id);

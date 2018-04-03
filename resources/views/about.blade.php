@@ -38,14 +38,15 @@
             <p>Roadmap for the project:</p>
             <ul>
                 <li><del>Update the game engine for applying to Laravel;</del></li>
-                <li>Create basic CRUD with Laravel;</li>
-                <li>Finalize game engine - movement, collision detection;</li>
+                <li><del>Create basic CRUD with Laravel;</del></li>
+                <li>Update game engine - movement, collision detection for more tile types;</li>
                 <li>Add more tile types;</li>
                 <li>Add automated validation for submited layout (is player object placed and etc);</li>
                 <li>Add thumbnail generation for submited layouts;</li>
                 <li>Add admin review before posting layout (for preventing offensive images);</li>
                 <li>Add better styling for the website</li>
                 <li>Add "full screen" mode while playing;</li>
+                <li>Update user registration route - add email confirmation.</li>
                 <li>Finalize game engine;</li>
                 <li>Add sound effects;</li>
                 <li>Add mobile controls;</li>

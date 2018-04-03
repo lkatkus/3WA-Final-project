@@ -33,7 +33,7 @@
                         @endforeach
                     <div class="col-sm-6 col-md-4 bg-warning">
                         <div class="buttonMore">
-                            <a class="buttonMoreTag" href="/level">All levels</a>
+                            <a class="buttonMoreTag sectionHeader" href="/level">Show more</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
 
                     <div class="col-sm-6 col-md-4 bg-danger">
                         <div class="buttonMore">
-                            <a class="buttonMoreTag" href="/level">Load more</a>
+                            <a class="buttonMoreTag sectionHeader" href="/level">Show more</a>
                         </div>
                     </div>
 
