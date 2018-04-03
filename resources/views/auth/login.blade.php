@@ -2,7 +2,24 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+
+    <!-- TOP BANNER -->
+    <div class="row d-none d-sm-block">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-top.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END TOP BANNER -->
+
+    <!-- TOP BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-top-small.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END TOP BANNER FOR XS -->
+
+    <div class="row justify-content-center bg-info no-gutters py-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -65,5 +82,22 @@
             </div>
         </div>
     </div>
+
+    <!-- BOTTOM BANNER -->
+    <div class="row d-none d-sm-block">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-bottom.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END BOTTOM BANNER -->
+
+    <!-- BOTTOM BANNER FOR XS -->
+    <div class="row d-block d-sm-none">
+        <div class="col-12">
+            <img class="w-100" src="../images/www/banners/banner-bottom-small.png" alt="Phat The Cat Banner">
+        </div>
+    </div>
+    <!-- END BOTTOM BANNER FOR XS -->
+
 </div>
 @endsection

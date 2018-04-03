@@ -57,7 +57,7 @@
                                         <form action="{{ route('userConfirm', $user -> id ) }}" method="post">
                                             @csrf
                                             @method('put')
-                                            <button class="btn btn-primary" type="submit" name="button">Confirm</button>
+                                            <button class="btn @if($user -> confirmed) btn-primary @else btn-warning @endif" type="submit" name="button">@if($user -> confirmed) Confirm @else Unconfirm @endif</button>
                                         </form>
                                     </td>
                                 </tr>
