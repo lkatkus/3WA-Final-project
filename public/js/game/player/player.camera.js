@@ -9,7 +9,7 @@ Player.prototype.cameraFollow = function() {
 
     if(playerDistFromCameraFocusY > 0){
         camPanY ++;
-    }else if(playerDistFromCameraFocusY < - canvas.height / 2 && player.grounded){
+    }else if(playerDistFromCameraFocusY < - canvas.height / 2){
         camPanY --;
     }
 }
