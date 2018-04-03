@@ -61,7 +61,7 @@ Player.prototype.move = function(){
                 this.jumping = false;
                 this.falling = false;
                 this.grounded = true;
-                this.speedY = 10;
+                this.speedY = this.playerMaxSpeedY;
 
                 // IF NEXT POSITION IS TAKEN. SET PLAYER POSITION TO PREVIOUS
                 this.y = (this.playerRow + 1) * TILE_SIZE;

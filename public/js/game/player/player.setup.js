@@ -20,7 +20,7 @@ function Player(){
 
     // MOVEMENT SPEED
     this.speedX = 1;
-    this.speedY = 10;
+    this.speedY = Math.floor(TILE_SIZE / 6);
     this.playerMaxSpeedX = Math.floor(TILE_SIZE / 12);
     this.playerMaxSpeedY = Math.floor(TILE_SIZE / 6);
     this.climbingSpeed = 0;

@@ -121,20 +121,20 @@ function setWorldSize(){
     WORLD_COLS = sceneLayout[0].length;
     WORLD_ROWS = sceneLayout.length;
 
-    TILE_SIZE = 50;
     // CANVAS SETUP
-    // canvas.width = document.getElementById('canvasContainer').offsetWidth;
-    // canvas.height = canvas.width;
+    canvas.width = document.getElementById('canvasContainer').offsetWidth;
+    canvas.height = canvas.width;
 
-    // TILE_SIZE = document.getElementById('canvasContainer').offsetWidth / WORLD_COLS;
+    TILE_SIZE = document.getElementById('canvasContainer').offsetWidth / 10;
 
+    // TILE_SIZE = 50;
     // CANVAS SETUP
     // canvas.width = WORLD_COLS * TILE_SIZE;
     // canvas.height = WORLD_ROWS * TILE_SIZE;
 
-    // CANVAS SETUP
-    canvas.width = 10 * TILE_SIZE;
-    canvas.height = 10 * TILE_SIZE;
+    // // CANVAS SETUP
+    // canvas.width = 10 * TILE_SIZE;
+    // canvas.height = 10 * TILE_SIZE;
 };
 
 function setPlayer(){
