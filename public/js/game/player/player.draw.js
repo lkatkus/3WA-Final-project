@@ -29,7 +29,7 @@ Player.prototype.draw = function(){
 
     // PLAYER DRAWING POSITION RELATIVE TO CANVAS VIEWPORT
     let x = canvas.width / 2;
-    let y = canvas.width / 2;
+    let y = this.y - camPanY;
 
     ctx.drawImage(this.playerImg, 0, 0, 60, 60, x, y, TILE_SIZE, TILE_SIZE);
 

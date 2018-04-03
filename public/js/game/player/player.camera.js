@@ -1,20 +1,15 @@
 Player.prototype.cameraFollow = function() {
 
     camPanX = player.x - canvas.width / 2;
-    camPanY = player.y - canvas.height / 2;
 
-    var cameraFocusCenterY = Math.floor(camPanY + canvas.height / 4 * 3);
-    var playerDistFromCameraFocusY = Math.floor(player.y - cameraFocusCenterY);
+    var cameraFocusY = Math.floor(camPanY + baseHeight);
+    var playerDistFromCameraFocusY = Math.floor(player.y - cameraFocusY);
 
-    // console.log(cameraFocusCenterY + ' ' + playerDistFromCameraFocusY + ' ' + player.y);
-    //
-    // if(playerDistFromCameraFocusY > 100){
-    //     camPanY += player.speedY;
-    //     console.log('1');
-    // }else if(playerDistFromCameraFocusY < 0){
-    //     camPanY -= player.speedY;
-    //     console.log('2');
-    // }else if(playerDistFromCameraFocusY == 0){
-    //     camPanY = player.y;
-    // }
+    console.log(playerDistFromCameraFocusY)
+
+    if(playerDistFromCameraFocusY > 0){
+        camPanY ++;
+    }else if(playerDistFromCameraFocusY < - canvas.height / 2 && player.grounded){
+        camPanY --;
+    }
 }

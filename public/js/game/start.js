@@ -44,6 +44,7 @@ var screen = {
 /* FOR CAMERA OFFSET WHEN PLAYER IS MOVING */
 var camPanX = 0;
 var camPanY = 0;
+var baseHeight;
 
 // ========= END VARIABLES =========
 
@@ -77,6 +78,9 @@ window.addEventListener('load', function(){
 
 // USER WHEN FIRST DISPLAYING LAYOUT FOR USER
 function makeWorld(){
+    baseHeight = canvas.height / 4 * 3;
+    camPanY = player.y - baseHeight;
+
     mainMove();
     mainDraw();
 };
@@ -105,10 +109,10 @@ function mainDraw(){
     ctx.translate(-camPanX, -camPanY);
 
     drawScene();
-
     ctx.restore();
 
     player.draw();
+
 };
 
 // SETUP CANVAS SIZE
@@ -119,14 +123,18 @@ function setWorldSize(){
 
     TILE_SIZE = 50;
     // CANVAS SETUP
-    canvas.width = document.getElementById('canvasContainer').offsetWidth;
-    canvas.height = canvas.width;
+    // canvas.width = document.getElementById('canvasContainer').offsetWidth;
+    // canvas.height = canvas.width;
 
     // TILE_SIZE = document.getElementById('canvasContainer').offsetWidth / WORLD_COLS;
 
     // CANVAS SETUP
     // canvas.width = WORLD_COLS * TILE_SIZE;
     // canvas.height = WORLD_ROWS * TILE_SIZE;
+
+    // CANVAS SETUP
+    canvas.width = 10 * TILE_SIZE;
+    canvas.height = 10 * TILE_SIZE;
 };
 
 function setPlayer(){
