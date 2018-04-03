@@ -19,64 +19,67 @@
         </div>
         <!-- END TOP BANNER FOR XS -->
 
-
+        <!-- SECTION CONTENT -->
         <div class="row no-gutters bg-info">
-            <h2 class="col-12 text-center bg-danger text-uppercase sectionHeader">Levels</h2>
-
-            <div class="col-12 p-4">
-
-
-                <table class="table">
-                    <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Title</th>
-                        <th>Created</th>
-                        <th>Description</th>
-                        <!-- ADMIN CONTROLS -->
-                            @if(Auth::check() && Auth::user()->role == 'admin')
-                                <th>Featured</th>
-                                <th colspan="2">Admin controls</th>
+            @if(isset($totalLevels) && $totalLevels == 0)
+                <h2 class="col-12 text-center bg-danger text-uppercase sectionHeader">You do not have any posted levels</h2>
+            @else
+                <h2 class="col-12 text-center bg-danger text-uppercase sectionHeader">Levels</h2>
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <tr class="table-secondary">
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Title</th>
+                            <th>Created</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            @if(Auth::check())
+                                <th colspan="2">Controls</th>
                             @endif
-                        <!-- END ADMIN CONTROLS -->
-                    </tr>
+                        </tr>
 
-                @foreach($levels as $level)
-                    <tr>
-                        <td>{{ $level -> id }}</td>
-                        <td>{{ $level -> user -> name }}</td>
-                        <td>
-                            <a href="{{ route('level.show', $level->id )}}">{{ $level -> title }}</a>
-                        </td>
-                        <td>{{ $level -> created_at }}</td>
-                        <td>{{ $level -> description }}</td>
-
-                        <!-- ADMIN CONTROLS -->
-                            @if(Auth::check() && Auth::user()->role == 'admin')
+                        @foreach($levels as $level)
+                            <tr>
+                                <td>{{ $level -> id }}</td>
+                                <td>{{ $level -> user -> name }}</td>
+                                <td><a href="{{ route('level.show', $level->id )}}">{{ $level -> title }}</a></td>
+                                <td>{{ $level -> created_at }}</td>
+                                <td>{{ $level -> description }}</td>
                                 <td>@if($level->featured == 1) Featured @else Not Featured @endif</td>
-                                <td>
-                                    <form action="{{ route('level.update', $level-> id ) }}" method="post">
-                                        @csrf
-                                        @method('put')
-                                        <button class="btn btn-primary" type="submit" name="button">Featured</button>
-                                    </form>
-                                <td>
-                                    <form action="{{ route('level.destroy', $level-> id ) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger" type="submit" name="button">Delete</button>
-                                    </form>
-                                </td>
-                            @endif
-                        <!-- END ADMIN CONTROLS -->
 
-                    </tr>
-                @endforeach
+                                <!-- USER CONTROLS -->
+                                    @if(Auth::check() && (Auth::user() -> id == $level -> user -> id || Auth::user()->role == 'admin'))
+                                        <td>
+                                            <form action="{{ route('level.destroy', $level-> id ) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger" type="submit" name="button">Delete</button>
+                                            </form>
+                                        </td>
+                                    @else
+                                        <td></td>
+                                    @endif
+                                <!-- END USER CONTROLS -->
 
-            </table>
-
-            </div>
+                                <!-- ADMIN CONTROLS -->
+                                    @if(Auth::check() && Auth::user()->role == 'admin')
+                                        <td>
+                                            <form action="{{ route('level.update', $level-> id ) }}" method="post">
+                                                @csrf
+                                                @method('put')
+                                                <button class="btn btn-primary" type="submit" name="button">Featured</button>
+                                            </form>
+                                        </td>
+                                    @endif
+                                <!-- END ADMIN CONTROLS -->
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            @endif
         </div>
+        <!-- END SECTION CONTENT -->
 
         <!-- BOTTOM BANNER -->
         <div class="row d-none d-sm-block">

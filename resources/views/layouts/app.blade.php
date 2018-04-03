@@ -43,7 +43,15 @@
                                 <li><a class="nav-link" href="{{ route('level.create')}}">Create level</a></li>
                             @endif
                         <!-- END USER MENU -->
+
                         <li><a class="nav-link" href="{{ route('about') }}">About</a></li>
+
+                        <!-- ADMIN MENU -->
+                        @if( Auth::check() && Auth::user()->role == 'admin')
+                            <li class="nav-link">|</li>
+                            <li><a class="nav-link" href="{{ route('user.index') }}">All users</a></li>
+                        @endif
+                        <!-- END ADMIN MENU -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -59,15 +67,20 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    <!-- USER MENU -->
+                                        <a class="dropdown-item" href="{{ route('user.show', Auth::user()->id ) }}">Your profile</a>
+                                    <!-- END USER MENU -->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                    <!-- AUTH STUFF -->
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    <!-- END AUTH STUFF -->
                                 </div>
                             </li>
                         @endguest

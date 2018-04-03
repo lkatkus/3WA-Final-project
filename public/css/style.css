@@ -97,7 +97,7 @@ main{
     padding: 10px 0 10px 0;
 }
 
-h2{
+h2, h3{
     margin-bottom: 0;
 }
 
@@ -128,6 +128,10 @@ h2{
 #loadMoreButton{
     user-select: none;
     cursor: pointer;
+}
+
+.table{
+    margin-bottom: 0;
 }
 
 /* SHOW GAME BLADE */

@@ -21,7 +21,8 @@ class LevelController extends Controller
 
     public function userLevels(){
         $levels = Level::where('userId', Auth::user()->id)->get();
-        return view ('levels.index', compact('levels'));
+        $totalLevels = Level::where('userId', Auth::user()->id)->count();
+        return view ('levels.index', compact('levels','totalLevels'));
     }
 
     /**
